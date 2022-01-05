@@ -1,10 +1,12 @@
-OUTPUT ?= hello
 BUILD=go build
 LDFLAGS=--ldflags "-w -s"
 UPXFLAGS= --best --lzma
+.DEFAULT_GOAL := build
+
+OUTPUT ?= hello
 PACKAGE=examples
 DOCKER_IMAGE=myimage
-.DEFAULT_GOAL := build
+
 
 build: lint
 	@cd cmd && $(BUILD) $(LDFLAGS) -o ../bin/$(OUTPUT) && upx $(UPXFLAGS) ../bin/$(OUTPUT)
@@ -27,4 +29,4 @@ docker-build:
 	@docker build . -t $(DOCKER_IMAGE)
 
 docker-run:
-	@docker run $(DOCKER_IMAGE)
+	@docker-compose up

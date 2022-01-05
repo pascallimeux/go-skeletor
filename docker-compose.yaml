@@ -1,0 +1,13 @@
+version: "3"
+
+services:
+  app:
+    build:
+      context: .
+    image: myimage
+
+    environment:
+      LOG_LEVEL: trace
+
+    #command: sh -c "sleep 10000"
+    command: "./myapp"

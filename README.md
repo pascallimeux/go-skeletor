@@ -3,7 +3,7 @@
 go template project
 with configuration, logger, tests and docker
 
-## initialisation
+## Initialisation du projet
 
 ```
 go mod init example.com/skeleton
